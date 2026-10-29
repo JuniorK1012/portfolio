@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tout est servi depuis le site lui-même : aucune ressource externe autorisée -->
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+
+    <title>Junior Erville KOUMOU NDEYE | Portfolio</title>
+    <meta
+        name="description"
+        content="Portfolio de Junior Erville KOUMOU NDEYE, étudiant en Génie Logiciel et Administration Réseau à l'EAD."
+        data-i18n-content="meta-description">
+    <meta name="theme-color" content="#0A111B">
+
+    <!-- Aperçu lors du partage du lien (LinkedIn, WhatsApp...) : adapter l'URL au site déployé -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://juniork1012.github.io/portfolio/">
+    <meta property="og:title" content="Junior Erville KOUMOU NDEYE | Portfolio" data-i18n-content="page-title">
+    <meta
+        property="og:description"
+        content="Portfolio de Junior Erville KOUMOU NDEYE, étudiant en Génie Logiciel et Administration Réseau à l'EAD."
+        data-i18n-content="meta-description">
+    <meta property="og:image" content="https://juniork1012.github.io/portfolio/assets/images/og-image.png">
+    <meta property="og:locale" content="fr_FR">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+    <link
+        rel="preload"
+        href="assets/fonts/inter-latin-wght-normal.woff2"
+        as="font"
+        type="font/woff2"
+        crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- L'ordre compte : translations.js doit être chargé avant script.js -->
+    <script src="js/translations.js" defer></script>
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+<!-- Icônes Lucide (licence ISC), appelées avec <use href="#icon-nom"> -->
+<svg class="sprite" aria-hidden="true">
+    <symbol id="icon-menu" viewBox="0 0 24 24">
+        <line x1="4" x2="20" y1="6" y2="6"/>
+        <line x1="4" x2="20" y1="12" y2="12"/>
+        <line x1="4" x2="20" y1="18" y2="18"/>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24">
+        <path d="M18 6 6 18"/>
+        <path d="m6 6 12 12"/>
+    </symbol>
+    <symbol id="icon-arrow-up-right" viewBox="0 0 24 24">
+        <path d="M7 7h10v10"/>
+        <path d="M7 17 17 7"/>
+    </symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect width="20" height="16" x="2" y="4" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </symbol>
+    <symbol id="icon-github" viewBox="0 0 24 24">
+        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+        <path d="M9 18c-4.51 2-5-2-7-2"/>
+    </symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+    </symbol>
+    <symbol id="icon-message-circle" viewBox="0 0 24 24">
+        <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>
+    </symbol>
+</svg>
+
+<!-- Navigation -->
+<header class="header">
+    <nav class="navbar container" aria-label="Navigation principale" data-i18n-aria-label="nav-aria">
+
+        <a href="#accueil" class="logo">
+            <span class="logo-symbol">&lt;JK/&gt;</span>
+            <span>ERVILLE</span>
+        </a>
+
+        <button
+            class="menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            aria-controls="nav-links"
+            data-i18n-aria-label="menu-open">
+            <svg class="icon icon-menu" aria-hidden="true"><use href="#icon-menu"/></svg>
+            <svg class="icon icon-close" aria-hidden="true"><use href="#icon-x"/></svg>
+        </button>
+
+        <div class="nav-links" id="nav-links">
+            <a href="#accueil" data-i18n="nav-home">Accueil</a>
+            <a href="#apropos" data-i18n="nav-about">À propos</a>
+            <a href="#competences" data-i18n="nav-skills">Compétences</a>
+            <a href="#projets" data-i18n="nav-projects">Projets</a>
+            <a href="#contact" data-i18n="nav-contact">Contact</a>
+
+            <button
+                class="language-toggle"
+                id="language-toggle"
+                type="button"
+                aria-label="Passer en anglais"
+                data-i18n-aria-label="language-aria">
+                <span data-lang="fr">FR</span> / <span data-lang="en">EN</span>
+            </button>
+        </div>
+
+    </nav>
+</header>
+
+<main>
+
+    <!-- Accueil -->
+    <section class="hero section container" id="accueil">
+
+        <div class="hero-content">
+            <p class="eyebrow" data-i18n="hero-eyebrow">GÉNIE LOGICIEL · SYSTÈMES &amp; RÉSEAUX</p>
+
+            <h1>
+                <span data-i18n="hero-greeting">Bonjour, je suis</span><br>
+                <span class="highlight">Junior Erville</span><br>
+                KOUMOU NDEYE.
+            </h1>
+
+            <p class="hero-description" data-i18n="hero-description">
+                Étudiant en troisième année à l'École Africaine de Développement,
+                je m'intéresse au développement logiciel, aux bases de données
+                et à l'administration des systèmes et réseaux.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#projets" class="button button-primary" data-i18n="hero-projects">
+                    Découvrir mes projets
+                </a>
+                <a
+                    href="assets/documents/CV_Junior_Erville_KOUMOU_NDEYE.pdf"
+                    class="button button-secondary"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-i18n="hero-cv">
+                    Consulter mon CV
+                </a>
+            </div>
+
+            <p class="availability">
+                <span class="status-dot"></span>
+                <span data-i18n="hero-availability">Disponible pour un stage</span>
+            </p>
+        </div>
+
+        <div class="hero-image-wrapper">
+            <div class="image-frame">
+                <img
+                    class="profile-image"
+                    src="assets/images/img1.jpeg"
+                    alt="Portrait professionnel de Junior Erville KOUMOU NDEYE"
+                    fetchpriority="high"
+                    decoding="async"
+                    data-i18n-alt="profile-alt">
+            </div>
+
+            <div class="image-caption">
+                <span class="caption-indicator"></span>
+                <span data-i18n="hero-caption">Développement logiciel · Systèmes &amp; réseaux</span>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- À propos -->
+    <section class="section container" id="apropos">
+
+        <div class="section-heading">
+            <p class="section-label" data-i18n="about-label">01 / PROFIL</p>
+            <h2 data-i18n="about-title">À propos de moi</h2>
+        </div>
+
+        <div class="about-content">
+            <p data-i18n="about-paragraph-1">
+                Je suis étudiant en troisième année de Génie Logiciel et
+                Administration Réseau à l'École Africaine de Développement.
+                Je m'intéresse à la conception d'applications, aux bases de
+                données et à l'administration des infrastructures informatiques.
+            </p>
+            <p data-i18n="about-paragraph-2">
+                À travers mes projets académiques et mes travaux pratiques,
+                je cherche à mettre en application mes connaissances, à résoudre
+                des problèmes techniques et à développer progressivement mon expérience.
+            </p>
+            <p data-i18n="about-paragraph-3">
+                Je recherche un stage académique ou préprofessionnel pour
+                contribuer à des projets concrets et apprendre auprès de professionnels.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Compétences -->
+    <section class="section container" id="competences">
+
+        <div class="section-heading">
+            <p class="section-label" data-i18n="skills-label">02 / SAVOIR-FAIRE</p>
+            <h2 data-i18n="skills-title">Compétences techniques</h2>
+            <p class="section-intro" data-i18n="skills-intro">
+                Les technologies et outils rencontrés au cours de ma formation
+                et de mes projets.
+            </p>
+        </div>
+
+        <div class="skills-grid">
+
+            <article class="skill-card">
+                <span class="card-index">01</span>
+                <h3 data-i18n="skill-development">Développement logiciel</h3>
+                <p>HTML5 · CSS3 · JavaScript · Node.js · Express.js · PHP · Java · C# · Python</p>
+            </article>
+
+            <article class="skill-card">
+                <span class="card-index">02</span>
+                <h3 data-i18n="skill-databases">Bases de données</h3>
+                <p data-i18n="skill-databases-description">MySQL · SQL Server · SQL · Modélisation des données</p>
+            </article>
+
+            <article class="skill-card">
+                <span class="card-index">03</span>
+                <h3 data-i18n="skill-networks">Réseaux informatiques</h3>
+                <p data-i18n="skill-networks-description">
+                    TCP/IP · Modèle OSI · IPv4 · Routage · Configuration de routeurs et switchs
+                </p>
+            </article>
+
+            <article class="skill-card">
+                <span class="card-index">04</span>
+                <h3 data-i18n="skill-systems">Systèmes et outils</h3>
+                <p>Linux · Windows · VirtualBox · OpenLDAP · Nextcloud · Samba · Git · GitHub · Postman</p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- Projets -->
+    <section class="section container" id="projets">
+
+        <div class="section-heading">
+            <p class="section-label" data-i18n="projects-label">03 / RÉALISATIONS</p>
+            <h2 data-i18n="projects-title">Projets sélectionnés</h2>
+            <p class="section-intro" data-i18n="projects-intro">
+                Des projets académiques et des travaux pratiques illustrant
+                mon parcours en développement et en administration informatique.
+            </p>
+        </div>
+
+        <div class="projects-grid">
+
+            <article class="project-card">
+                <div class="project-topline">
+                    <span class="project-number">PROJECT_01</span>
+                    <span class="project-status project-status-progress" data-i18n="status-progress">
+                        En développement
+                    </span>
+                </div>
+
+                <h3>EduPay</h3>
+
+                <p data-i18n="project-edupay-description">
+                    Application web de gestion scolaire : élèves, classes,
+                    paiements, notes, absences et gestion des accès.
+                </p>
+
+                <div class="project-tags">
+                    <span>Node.js</span>
+                    <span>Express.js</span>
+                    <span>MySQL</span>
+                    <span>JavaScript</span>
+                </div>
+
+                <p class="project-note" data-i18n="project-edupay-note">
+                    Projet en cours de développement.
+                </p>
+            </article>
+
+            <article class="project-card">
+                <div class="project-topline">
+                    <span class="project-number">PROJECT_02</span>
+                    <span class="project-status project-status-complete" data-i18n="status-lab">
+                        Laboratoire réalisé
+                    </span>
+                </div>
+
+                <h3 data-i18n="project-infrastructure-title">Infrastructure Linux et LDAP</h3>
+
+                <p data-i18n="project-infrastructure-description">
+                    Infrastructure virtualisée sous VirtualBox comprenant
+                    un annuaire LDAP, un cloud privé, un serveur de stockage
+                    et des services de messagerie.
+                </p>
+
+                <div class="project-tags">
+                    <span>Ubuntu Server</span>
+                    <span>OpenLDAP</span>
+                    <span>Nextcloud</span>
+                    <span>Samba</span>
+                    <span>Roundcube</span>
+                </div>
+
+                <p class="project-note" data-i18n="project-infrastructure-note">
+                    Services configurés et fonctionnels dans le laboratoire.
+                </p>
+            </article>
+
+            <article class="project-card">
+                <div class="project-topline">
+                    <span class="project-number">PROJECT_03</span>
+                    <span class="project-status project-status-planned" data-i18n="status-design">
+                        Analyse et conception
+                    </span>
+                </div>
+
+                <h3 data-i18n="project-network-title">Gestion du trafic réseau</h3>
+
+                <p data-i18n="project-network-description">
+                    Projet académique visant à concevoir une plateforme
+                    de gestion et de priorisation du trafic réseau dans
+                    un établissement d'enseignement.
+                </p>
+
+                <div class="project-tags">
+                    <span data-i18n="tag-networks">Réseaux</span>
+                    <span>Linux</span>
+                    <span>QoS</span>
+                </div>
+
+                <p class="project-note" data-i18n="project-network-note">
+                    Projet en phase d'analyse et de conception.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!-- CV -->
+    <section class="section container resume-section" id="cv">
+
+        <div class="resume-content">
+            <p class="section-label" data-i18n="resume-label">04 / PARCOURS</p>
+            <h2 data-i18n="resume-title">Mon parcours en détail</h2>
+
+            <p data-i18n="resume-description">
+                Retrouvez ma formation, mes compétences techniques et
+                mes projets académiques dans mon CV.
+            </p>
+
+            <a
+                href="assets/documents/CV_Junior_Erville_KOUMOU_NDEYE.pdf"
+                class="button button-primary"
+                target="_blank"
+                rel="noopener noreferrer">
+                <span data-i18n="resume-download">Ouvrir mon CV PDF</span>
+                <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up-right"/></svg>
+            </a>
+        </div>
+
+        <span class="resume-decoration" aria-hidden="true">CV.pdf</span>
+
+    </section>
+
+    <!-- Contact -->
+    <section class="section container" id="contact">
+
+        <div class="section-heading">
+            <p class="section-label" data-i18n="contact-label">05 / CONTACT</p>
+            <h2 data-i18n="contact-title">Échangeons</h2>
+            <p class="section-intro" data-i18n="contact-description">
+                Vous recherchez un stagiaire motivé ou souhaitez échanger
+                autour d'un projet informatique ? Vous pouvez me contacter.
+            </p>
+        </div>
+
+        <div class="contact-links">
+
+            <a href="mailto:koumoujuniorerville@gmail.com" class="contact-link">
+                <span class="contact-label">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>
+                    <span data-i18n="contact-email-label">E-MAIL</span>
+                </span>
+                <span class="contact-value">
+                    koumoujuniorerville@gmail.com
+                    <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up-right"/></svg>
+                </span>
+            </a>
+
+            <a
+                href="https://github.com/juniorK1012"
+                class="contact-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                <span class="contact-label">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-github"/></svg>
+                    GITHUB
+                </span>
+                <span class="contact-value">
+                    juniorK1012
+                    <svg class="icon" aria-hidden="true"><use href="#icon-arrow-up-right"/></svg>
+                </span>
+            </a>
+
+            <a href="tel:+242055087182" class="contact-link">
+                <span class="contact-label">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>
+                    <span data-i18n="contact-phone-label">TÉLÉPHONE</span>
+                </span>
+                <span class="contact-value">
+                    <span data-i18n="contact-call">Appeler</span>&nbsp;· +242 05 508 71 82
+                </span>
+            </a>
+
+            <a
+                href="https://wa.me/242055087182"
+                class="contact-link"
+                target="_blank"
+                rel="noopener noreferrer">
+                <span class="contact-label">
+                    <svg class="icon" aria-hidden="true"><use href="#icon-message-circle"/></svg>
+                    WHATSAPP
+                </span>
+                <span class="contact-value" data-i18n="contact-whatsapp">M'écrire sur WhatsApp</span>
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    <div class="container footer-content">
+        <p>© <span id="current-year"></span> Junior Erville KOUMOU NDEYE</p>
+        <p data-i18n="footer-text">Conçu et développé avec HTML, CSS et JavaScript.</p>
+    </div>
+</footer>
+
+</body>
+</html>
